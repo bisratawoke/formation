@@ -1,8 +1,17 @@
 "use client";
 
-import { AppBar, Box, Toolbar, Typography, Stack, Avatar } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  Stack,
+  Avatar,
+  Button,
+} from "@mui/material";
 import { useSession } from "next-auth/react";
 import { OutlinedButton } from "./OutlinedButton";
+import { TextButton } from "./TextButton";
 export default function TopNav() {
   const { data: session } = useSession();
   return (
@@ -17,8 +26,8 @@ export default function TopNav() {
             sx={{
               fontSize: "16x",
               fontWeight: "bold",
-              lineHeight: "8px",
-              color: "black",
+              lineHeight: "18px",
+              color: "rgb(0, 0, 238)",
             }}
           >
             Formation
@@ -26,7 +35,13 @@ export default function TopNav() {
         </Box>
         <Stack direction="column">
           {!session ? (
-            <OutlinedButton variant="outlined">Signin</OutlinedButton>
+            <Stack direction="row" spacing={"8px"}>
+              <TextButton>Log in</TextButton>
+              <TextButton>Sign up</TextButton>
+              <Button variant="contained" size="small">
+                Create Form
+              </Button>
+            </Stack>
           ) : (
             <>
               <Avatar>BA</Avatar>

@@ -1,15 +1,7 @@
-import {
-  Box,
-  Button,
-  ButtonProps,
-  Grid,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { CreateNewFormButton } from "@/components/RightIconButton";
-import { ArrowForward, ArrowRight } from "@mui/icons-material";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import { ArrowForward } from "@mui/icons-material";
+
 export default function Home() {
   return (
     <Stack
@@ -18,7 +10,7 @@ export default function Home() {
       sx={{
         paddingTop: "120px",
       }}
-      spacing={"80px"}
+      spacing={"68px"}
     >
       <Stack spacing="32px" alignItems={"center"}>
         <Typography
@@ -54,9 +46,26 @@ export default function Home() {
           </Typography>
         </Stack>
       </Stack>
-      <CreateNewFormButton variant="contained" endIcon={<ArrowForward />}>
-        Create new form
-      </CreateNewFormButton>
+      <Stack
+        direction="column"
+        alignItems="center"
+        justifyContent={"center"}
+        spacing={"12px"}
+      >
+        <CreateNewFormButton variant="contained" endIcon={<ArrowForward />}>
+          Create new form
+        </CreateNewFormButton>
+        <Typography
+          sx={{
+            fontSize: "13px",
+            lineHeight: "15px",
+            color: "rgb(69, 67, 62)",
+            weight: 400,
+          }}
+        >
+          No signup required
+        </Typography>
+      </Stack>
     </Stack>
   );
 }
