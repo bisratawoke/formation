@@ -1,11 +1,22 @@
 "use client";
 
-import { Button, TextField, TextFieldProps, styled } from "@mui/material";
+import {
+  Button,
+  InputBase,
+  TextField,
+  TextFieldProps,
+  styled,
+} from "@mui/material";
 
-export const LargeTextInput = styled(TextField)<TextFieldProps>(
+export const LargeTextInput = styled(InputBase)<TextFieldProps>(
   ({ theme }) => ({
-    size: "40px",
+    width: "400px",
     lineHeight: "44px",
     textColor: "rgb(55, 53, 47)",
+    "& .MuiInputBase-input": {
+      lineHeight: "100px",
+      padding: "0",
+      boxSizing: "border-box",
+    },
   })
 );

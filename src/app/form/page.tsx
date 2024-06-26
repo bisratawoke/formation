@@ -1,3 +1,4 @@
+import FormInputListContainer from "@/components/FormInputListContainer";
 import { LargeTextInput } from "@/components/LargeTextInput";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 
@@ -10,10 +11,7 @@ export default function Page() {
         paddingRight: "304px",
       }}
     >
-      <LargeTextInput
-        placeholder="Form Title"
-        variant="outlined"
-      ></LargeTextInput>
+      <FormInputListContainer />
     </Stack>
   );
 }

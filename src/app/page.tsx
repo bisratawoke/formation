@@ -1,6 +1,6 @@
 "use client";
 import { Stack, Typography } from "@mui/material";
-import { CreateNewFormButton } from "@/components/RightIconButton";
+import { RightIconButton } from "@/components/RightIconButton";
 import { ArrowForward } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 
@@ -26,7 +26,7 @@ export default function Home() {
         >
           The simplest way to create forms
         </Typography>
-        <Stack alignItems="center">
+        <Stack alignItems="center" spacing={"8px"}>
           <Typography
             sx={{
               fontWeight: 500,
@@ -35,7 +35,7 @@ export default function Home() {
               color: "rgb(55, 53, 47)",
             }}
           >
-            Say goodbye to boring forms. Meet Tally — the free,
+            Say goodbye to boring forms. Meet Formation — the free,
           </Typography>
           <Typography
             sx={{
@@ -55,7 +55,7 @@ export default function Home() {
         justifyContent={"center"}
         spacing={"12px"}
       >
-        <CreateNewFormButton
+        <RightIconButton
           variant="contained"
           endIcon={<ArrowForward />}
           onClick={() => {
@@ -63,7 +63,7 @@ export default function Home() {
           }}
         >
           Create new form
-        </CreateNewFormButton>
+        </RightIconButton>
         <Typography
           sx={{
             fontSize: "13px",

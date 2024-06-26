@@ -10,10 +10,11 @@ import {
   Button,
 } from "@mui/material";
 import { useSession } from "next-auth/react";
-import { OutlinedButton } from "./OutlinedButton";
 import { TextButton } from "./TextButton";
+import { useRouter } from "next/navigation";
 export default function TopNav() {
   const { data: session } = useSession();
+  const router = useRouter();
   return (
     <AppBar position="static" elevation={0}>
       <Toolbar
@@ -38,7 +39,13 @@ export default function TopNav() {
             <Stack direction="row" spacing={"8px"}>
               <TextButton>Log in</TextButton>
               <TextButton>Sign up</TextButton>
-              <Button variant="contained" size="small">
+              <Button
+                variant="contained"
+                size="small"
+                onClick={() => {
+                  router.push("form");
+                }}
+              >
                 Create Form
               </Button>
             </Stack>
