@@ -1,8 +1,11 @@
+"use client";
 import { Stack, Typography } from "@mui/material";
 import { CreateNewFormButton } from "@/components/RightIconButton";
 import { ArrowForward } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <Stack
       alignItems={"center"}
@@ -52,7 +55,13 @@ export default function Home() {
         justifyContent={"center"}
         spacing={"12px"}
       >
-        <CreateNewFormButton variant="contained" endIcon={<ArrowForward />}>
+        <CreateNewFormButton
+          variant="contained"
+          endIcon={<ArrowForward />}
+          onClick={() => {
+            router.push("form");
+          }}
+        >
           Create new form
         </CreateNewFormButton>
         <Typography
