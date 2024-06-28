@@ -9,7 +9,7 @@ import { RightIconButton } from "./RightIconButton";
 import { Box, Stack } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import InputField from "./InputField";
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const CreateFormContext = createContext<any>(null);
 export type formField = {
