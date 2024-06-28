@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/SessionProvider";
 import TopNav from "@/components/TopNav";
+import { ThemeProvider, createTheme } from "@mui/material";
 export default async function RootLayout({
   children,
 }: Readonly<{

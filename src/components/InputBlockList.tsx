@@ -1,11 +1,9 @@
 "use client";
 
 import { InputBlockType } from "./FormFieldSelectionDrawer";
-import { TwoLineHamburgerIcon } from "./TwoLinedHamburgerIcon";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
 import MenuIcon from "@mui/icons-material/Menu";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import NumbersIcon from "@mui/icons-material/Numbers";
@@ -15,6 +13,7 @@ import LinkIcon from "@mui/icons-material/Link";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import {
   ListItemButton,
   ListItemIcon,
@@ -24,19 +23,25 @@ import {
 } from "@mui/material";
 import { FormFieldContext } from "./FormFieldSelectionDrawer";
 import { useContext } from "react";
+import { useTheme } from "@mui/material/styles";
+import { grey, pink } from "@mui/material/colors";
+
 export default function InputBlockList() {
-  const { setSelectedFieldContent } = useContext(FormFieldContext);
+  const theme: any = useTheme();
+  const { setSelectedFieldContent, currentField, setCurrentField } =
+    useContext(FormFieldContext);
   const inputBlock: InputBlockType[] = [
     {
       name: "Short answer",
       icon: <DragHandleIcon />,
       onClick: () => {
+        setCurrentField("Short answer");
         setSelectedFieldContent(<Typography>Short answer</Typography>);
       },
     },
     { name: "Long answer", icon: <MenuIcon /> },
     { name: "Multiple choice", icon: <CheckCircleOutlineIcon /> },
-    { name: "Checkboxes", icon: <CheckBoxIcon /> },
+    { name: "Checkboxes", icon: <CheckBoxOutlineBlankIcon /> },
     { name: "Dropdown", icon: <KeyboardArrowDownIcon /> },
     { name: "Multi-select", icon: <DoneAllIcon /> },
     { name: "Number", icon: <NumbersIcon /> },
@@ -65,6 +70,8 @@ export default function InputBlockList() {
           key={indx}
           sx={{
             borderRadius: "8px",
+            backgroundColor:
+              inputBlock.name == currentField ? grey[300] : "white",
           }}
           onClick={inputBlock.onClick}
         >

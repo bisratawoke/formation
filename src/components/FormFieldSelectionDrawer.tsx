@@ -1,23 +1,16 @@
 "use client";
 
-import {
-  Drawer,
-  Grid,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Drawer, Grid, Stack } from "@mui/material";
 import {
   Dispatch,
   SetStateAction,
   ReactNode,
   useState,
   createContext,
+  useContext,
 } from "react";
 import InputBlockList from "@/components/InputBlockList";
+import { CreateFormContext, formField } from "./FormInputListContainer";
 
 export type InputBlockType = {
   name: string;
@@ -35,8 +28,16 @@ export default function FormFieldSelectionDrawer({
   openDrawer: boolean;
   setOpenDrawer: Dispatch<SetStateAction<boolean>>;
 }) {
+  const { formFields, setFormFields } = useContext(CreateFormContext);
+
+  function AddNewFormField(field: formField) {
+    setFormFields((state: formField[]) => [...state, { ...field }]);
+  }
+
   const [selectedFieldContent, setSelectedFieldContent] =
     useState<ReactNode | null>(null);
+  const [currentField, setCurrentField] = useState<string | null>(null);
+
   return (
     <Drawer
       PaperProps={{ style: { width: "60vw", overflow: "hidden" } }}
@@ -44,7 +45,14 @@ export default function FormFieldSelectionDrawer({
       open={openDrawer}
       onClose={() => setOpenDrawer(false)}
     >
-      <FormFieldContext.Provider value={{ setSelectedFieldContent }}>
+      <FormFieldContext.Provider
+        value={{
+          setSelectedFieldContent,
+          AddNewFormField,
+          currentField,
+          setCurrentField,
+        }}
+      >
         <Grid container sx={{ height: "100%" }}>
           <Grid
             item
