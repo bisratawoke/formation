@@ -52,7 +52,7 @@ export default function FormInputListContainer() {
       >
         {({ handleSubmit }) => (
           <Stack component="form" onSubmit={handleSubmit} spacing="124px">
-            <Stack spacing={2}>
+            <Stack spacing={5}>
               {formFields.map((field) => (
                 <InputField
                   key={field.id}
