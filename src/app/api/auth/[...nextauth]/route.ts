@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
-export const AuthOption = {
+const AuthOption = {
   providers: [
     Credentials({
       credentials: {
@@ -16,6 +16,6 @@ export const AuthOption = {
   ],
 };
 
-export const Handler = NextAuth(AuthOption);
+const Handler = NextAuth(AuthOption);
 
 export { Handler as GET, Handler as POST };
