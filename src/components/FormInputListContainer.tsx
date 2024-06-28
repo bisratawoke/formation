@@ -9,7 +9,35 @@ import { RightIconButton } from "./RightIconButton";
 import { Box, Stack } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import InputField from "./InputField";
+import { createContext, useState } from "react";
+
+export const CreateFormContext = createContext(null);
+type formField = {
+  id: string;
+  name?: string;
+  label?: string;
+  hasUtils?: boolean;
+  field?: any;
+};
+
 export default function FormInputListContainer() {
+  const [formFields, setFormFields] = useState<formField[]>([
+    {
+      id: "1",
+      name: "title",
+      label: "Title",
+      hasUtils: false,
+      field: (
+        <TextInputContainer name="title" label="Title">
+          <LargeTextInput
+            placeholder="Form Title"
+            variant="outlined"
+          ></LargeTextInput>
+        </TextInputContainer>
+      ),
+    },
+  ]);
+
   return (
     <Formik
       initialValues={{
