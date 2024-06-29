@@ -29,12 +29,6 @@ This project is a full-featured form builder application built with Next.js. It 
 
 ## Installation
 
-### Prerequisites
-
-- Node.js
-- PostgreSQL
-- Docker (optional, for containerization)
-
 ### Steps
 
 1. **Clone the repository**:
