@@ -13,9 +13,7 @@ import FormFieldSelectionDrawer from "./FormFieldSelectionDrawer";
 export default function InputFieldUtils() {
   const { formFields, setFormFields } = useContext(CreateFormContext);
   const [openDrawer, setOpenDrawer] = useState(false);
-  function AddNewFormField(field: formField) {
-    setFormFields((state: formField[]) => [...state, { ...field }]);
-  }
+
   return (
     <Stack direction={"row"} sx={{ position: "relative", right: 25 }}>
       <StyledIcon>
