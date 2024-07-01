@@ -1,16 +1,24 @@
 "use client";
 
 import { ArrowForward } from "@mui/icons-material";
-import { Button, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  Divider,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { BodyText } from "./FormInputSelectionDrawerDefaultContent";
 
 export default function ShortAnswerFieldCreationForm() {
   return (
     <Stack
-      justifyContent={"space-between"}
       sx={{
         height: "100%",
         padding: "24px",
+        paddingTop: "40px",
       }}
     >
       <Stack>
@@ -39,6 +47,44 @@ export default function ShortAnswerFieldCreationForm() {
             <BodyText>answer label or placeholder text </BodyText>
             <BodyText>for guidance.</BodyText>
           </Stack>
+        </Stack>
+      </Stack>
+      <Stack
+        spacing={4}
+        sx={{
+          marginTop: "48px",
+        }}
+      >
+        <Divider />
+        <Box alignItems="center">
+          <Chip
+            label="Example"
+            sx={{
+              fontSize: "12px",
+              fontWeight: 600,
+              color: "rgb(137, 136, 132)",
+              lineHeight: "12px",
+            }}
+          />
+        </Box>
+        <Stack spacing={1}>
+          <Typography
+            sx={{
+              fontSize: "16px",
+              fontWeight: 600,
+              color: "rgb(55,53,47)",
+              lineHeight: "18px",
+            }}
+          >
+            First name
+          </Typography>
+          <TextField variant="outlined" disabled size="small" />
+          <TextField
+            variant="outlined"
+            disabled
+            size="small"
+            placeholder="First name"
+          />
         </Stack>
       </Stack>
     </Stack>
