@@ -26,6 +26,10 @@ import { useContext } from "react";
 import { useTheme } from "@mui/material/styles";
 import { grey, pink } from "@mui/material/colors";
 import ShortAnswerFieldCreationForm from "./ShortAnswerFieldCreationForm";
+import LongAnswerFieldCreationForm from "./LongAnswerFieldCreationForm";
+import MultipleFieldCreationForm from "./MultipleFieldCreationForm";
+import CheckboxFieldCreationForm from "./CheckboxFieldCreationForm";
+import DropDownFieldCreationForm from "./DropDownFieldCreationForm";
 
 export default function InputBlockList() {
   const theme: any = useTheme();
@@ -40,10 +44,38 @@ export default function InputBlockList() {
         setSelectedFieldContent(<ShortAnswerFieldCreationForm />);
       },
     },
-    { name: "Long answer", icon: <MenuIcon /> },
-    { name: "Multiple choice", icon: <CheckCircleOutlineIcon /> },
-    { name: "Checkboxes", icon: <CheckBoxOutlineBlankIcon /> },
-    { name: "Dropdown", icon: <KeyboardArrowDownIcon /> },
+    {
+      name: "Long answer",
+      icon: <MenuIcon />,
+      onClick: () => {
+        setCurrentField("Long answer");
+        setSelectedFieldContent(<LongAnswerFieldCreationForm />);
+      },
+    },
+    {
+      name: "Multiple choice",
+      icon: <CheckCircleOutlineIcon />,
+      onClick: () => {
+        setCurrentField("Multiple choice");
+        setSelectedFieldContent(<MultipleFieldCreationForm />);
+      },
+    },
+    {
+      name: "Checkboxes",
+      icon: <CheckBoxOutlineBlankIcon />,
+      onClick: () => {
+        setCurrentField("Checkboxes");
+        setSelectedFieldContent(<CheckboxFieldCreationForm />);
+      },
+    },
+    {
+      name: "Dropdown",
+      icon: <KeyboardArrowDownIcon />,
+      onClick: () => {
+        setCurrentField("Dropdown");
+        setSelectedFieldContent(<DropDownFieldCreationForm />);
+      },
+    },
     { name: "Multi-select", icon: <DoneAllIcon /> },
     { name: "Number", icon: <NumbersIcon /> },
     { name: "Email", icon: <AlternateEmailIcon /> },
