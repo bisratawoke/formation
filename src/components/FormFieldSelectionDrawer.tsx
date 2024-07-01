@@ -8,9 +8,11 @@ import {
   useState,
   createContext,
   useContext,
+  useEffect,
 } from "react";
 import InputBlockList from "@/components/InputBlockList";
 import { CreateFormContext, formField } from "./FormInputListContainer";
+import FormInputSelectionDrawerDefaultContent from "./FormInputSelectionDrawerDefaultContent";
 
 export type InputBlockType = {
   name: string;
@@ -38,6 +40,9 @@ export default function FormFieldSelectionDrawer({
     useState<ReactNode | null>(null);
   const [currentField, setCurrentField] = useState<string | null>(null);
 
+  useEffect(() => {
+    setSelectedFieldContent(<FormInputSelectionDrawerDefaultContent />);
+  }, []);
   return (
     <Drawer
       PaperProps={{ style: { width: "60vw", overflow: "hidden" } }}
@@ -67,7 +72,7 @@ export default function FormFieldSelectionDrawer({
               <InputBlockList />
             </Stack>
           </Grid>
-          <Grid item md={8} sx={{ height: "100%" }}>
+          <Grid item md={8} sx={{ height: "100%" }} minHeight={"100vh"}>
             {selectedFieldContent}
           </Grid>
         </Grid>
