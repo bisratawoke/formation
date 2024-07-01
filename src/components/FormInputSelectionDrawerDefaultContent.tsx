@@ -3,7 +3,7 @@
 import { AddCircleRounded } from "@mui/icons-material";
 import { Stack, Typography, TypographyProps, styled } from "@mui/material";
 
-const BodyText = styled(Typography)<TypographyProps>(({ theme }) => ({
+export const BodyText = styled(Typography)<TypographyProps>(({ theme }) => ({
   fontSize: "16px",
   lineHeight: "24px",
   fontWeight: 400,

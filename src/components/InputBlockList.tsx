@@ -25,6 +25,7 @@ import { FormFieldContext } from "./FormFieldSelectionDrawer";
 import { useContext } from "react";
 import { useTheme } from "@mui/material/styles";
 import { grey, pink } from "@mui/material/colors";
+import ShortAnswerFieldCreationForm from "./ShortAnswerFieldCreationForm";
 
 export default function InputBlockList() {
   const theme: any = useTheme();
@@ -36,7 +37,7 @@ export default function InputBlockList() {
       icon: <DragHandleIcon />,
       onClick: () => {
         setCurrentField("Short answer");
-        setSelectedFieldContent(<Typography>Short answer</Typography>);
+        setSelectedFieldContent(<ShortAnswerFieldCreationForm />);
       },
     },
     { name: "Long answer", icon: <MenuIcon /> },
