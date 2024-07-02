@@ -7,6 +7,7 @@ import AppsIcon from "@mui/icons-material/Apps";
 import { Add } from "@mui/icons-material";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import UpdateIcon from "@mui/icons-material/Update";
+
 export default function InputFieldUtilsMenu({
   setOpenDrawer,
 }: {
@@ -14,6 +15,7 @@ export default function InputFieldUtilsMenu({
 }) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };

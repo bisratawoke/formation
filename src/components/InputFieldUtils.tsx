@@ -25,22 +25,4 @@ export default function InputFieldUtils() {
       />
     </Box>
   );
-  // return (
-  //   <Stack direction={"row"} sx={{ position: "relative", right: 25 }}>
-  //     <StyledIcon>
-  //       <Delete />
-  //     </StyledIcon>ss
-  //     <FormFieldSelectionDrawer
-  //       openDrawer={openDrawer}
-  //       setOpenDrawer={setOpenDrawer}
-  //     />
-  //     <StyledIcon
-  //       onClick={() => {
-  //         setOpenDrawer(true);
-  //       }}
-  //     >
-  //       <AddInputFieldButton />
-  //     </StyledIcon>
-  //   </Stack>
-  // );
 }

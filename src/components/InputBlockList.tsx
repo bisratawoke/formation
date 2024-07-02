@@ -32,6 +32,7 @@ import CheckboxFieldCreationForm from "./CheckboxFieldCreationForm";
 import DropDownFieldCreationForm from "./DropDownFieldCreationForm";
 import NumberFieldCreationForm from "./NumberFieldCreationForm";
 import EmailFieldCreationForm from "./EmailFieldCreationForm";
+import MultiselectFieldCreationForm from "./MultiselectFieldCreationForm";
 
 export default function InputBlockList() {
   const theme: any = useTheme();
@@ -78,7 +79,14 @@ export default function InputBlockList() {
         setSelectedFieldContent(<DropDownFieldCreationForm />);
       },
     },
-    { name: "Multi-select", icon: <DoneAllIcon />, onClick: () => {} },
+    {
+      name: "Multi-select",
+      icon: <DoneAllIcon />,
+      onClick: () => {
+        setCurrentField("Multi-select");
+        setSelectedFieldContent(<MultiselectFieldCreationForm />);
+      },
+    },
     {
       name: "Number",
       icon: <NumbersIcon />,
