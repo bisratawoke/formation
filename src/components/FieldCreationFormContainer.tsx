@@ -30,11 +30,14 @@ export default function FieldCreationFormContainer({
         label: `Untitled ${currentField}`,
         hasUtils: true,
         field: ({ name, label }: any) => (
-          <FormFieldFactory fieldType={currentField} />
+          <FormFieldFactory
+            fieldType={currentField}
+            name={name}
+            label={label}
+          />
         ),
       },
     ]);
-    console.log(currentField);
   }
   return (
     <Stack

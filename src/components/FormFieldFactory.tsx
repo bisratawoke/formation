@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { TextField } from "@mui/material";
+import TextInputContainer from "./TextInputContainer";
 
 export enum FieldType {
   SHORT_ANSWER = "Short answer",
@@ -18,13 +19,21 @@ export enum FieldType {
   FILE_UPLOAD = "File upload",
 }
 
-export default function FormFieldFactory({ fieldType }: any) {
+export default function FormFieldFactory({ fieldType, name, label }: any) {
   switch (fieldType) {
     case FieldType.SHORT_ANSWER:
-      return <>short answer</>;
+      return (
+        <TextInputContainer name={name} label={label} sx={{ width: "100%" }}>
+          <TextField />
+        </TextInputContainer>
+      );
 
     case FieldType.LONG_ANSWER:
-      return <>long answer</>;
+      return (
+        <TextInputContainer name={name} label={label} sx={{ width: "100%" }}>
+          <TextField multiline variant="outlined" minRows={5} />
+        </TextInputContainer>
+      );
 
     case FieldType.MULTIPLE_CHOICE:
       return <>Multiple choice</>;
