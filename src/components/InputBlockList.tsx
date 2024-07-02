@@ -24,7 +24,7 @@ import {
 import { FormFieldContext } from "./FormFieldSelectionDrawer";
 import { useContext } from "react";
 import { useTheme } from "@mui/material/styles";
-import { grey, pink } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 import ShortAnswerFieldCreationForm from "./ShortAnswerFieldCreationForm";
 import LongAnswerFieldCreationForm from "./LongAnswerFieldCreationForm";
 import MultipleFieldCreationForm from "./MultipleFieldCreationForm";
@@ -33,6 +33,7 @@ import DropDownFieldCreationForm from "./DropDownFieldCreationForm";
 import NumberFieldCreationForm from "./NumberFieldCreationForm";
 import EmailFieldCreationForm from "./EmailFieldCreationForm";
 import MultiselectFieldCreationForm from "./MultiselectFieldCreationForm";
+import { FieldType } from "./FormFieldFactory";
 
 export default function InputBlockList() {
   const theme: any = useTheme();
@@ -40,74 +41,89 @@ export default function InputBlockList() {
     useContext(FormFieldContext);
   const inputBlock: InputBlockType[] = [
     {
-      name: "Short answer",
+      name: FieldType.SHORT_ANSWER,
       icon: <DragHandleIcon />,
       onClick: () => {
-        setCurrentField("Short answer");
+        setCurrentField(FieldType.SHORT_ANSWER);
         setSelectedFieldContent(<ShortAnswerFieldCreationForm />);
       },
     },
     {
-      name: "Long answer",
+      name: FieldType.LONG_ANSWER,
       icon: <MenuIcon />,
       onClick: () => {
-        setCurrentField("Long answer");
+        setCurrentField(FieldType.LONG_ANSWER);
         setSelectedFieldContent(<LongAnswerFieldCreationForm />);
       },
     },
     {
-      name: "Multiple choice",
+      name: FieldType.MULTIPLE_CHOICE,
       icon: <CheckCircleOutlineIcon />,
       onClick: () => {
-        setCurrentField("Multiple choice");
+        setCurrentField(FieldType.MULTIPLE_CHOICE);
         setSelectedFieldContent(<MultipleFieldCreationForm />);
       },
     },
     {
-      name: "Checkboxes",
+      name: FieldType.CHECKBOXES,
       icon: <CheckBoxOutlineBlankIcon />,
       onClick: () => {
-        setCurrentField("Checkboxes");
+        setCurrentField(FieldType.CHECKBOXES);
         setSelectedFieldContent(<CheckboxFieldCreationForm />);
       },
     },
     {
-      name: "Dropdown",
+      name: FieldType.DROPDOWN,
       icon: <KeyboardArrowDownIcon />,
       onClick: () => {
-        setCurrentField("Dropdown");
+        setCurrentField(FieldType.DROPDOWN);
         setSelectedFieldContent(<DropDownFieldCreationForm />);
       },
     },
     {
-      name: "Multi-select",
+      name: FieldType.MULTI_SELECT,
       icon: <DoneAllIcon />,
       onClick: () => {
-        setCurrentField("Multi-select");
+        setCurrentField(FieldType.MULTI_SELECT);
         setSelectedFieldContent(<MultiselectFieldCreationForm />);
       },
     },
     {
-      name: "Number",
+      name: FieldType.NUMBER,
       icon: <NumbersIcon />,
       onClick: () => {
-        setCurrentField("Number");
+        setCurrentField(FieldType.NUMBER);
         setSelectedFieldContent(<NumberFieldCreationForm />);
       },
     },
     {
-      name: "Email",
+      name: FieldType.EMAIL,
       icon: <AlternateEmailIcon />,
       onClick: () => {
-        setCurrentField("Email");
+        setCurrentField(FieldType.EMAIL);
         setSelectedFieldContent(<EmailFieldCreationForm />);
       },
     },
-    { name: "Phone number", icon: <LocalPhoneIcon /> },
-    { name: "Link", icon: <LinkIcon /> },
-    { name: "Date", icon: <CalendarTodayIcon /> },
-    { name: "Time", icon: <AccessTimeIcon /> },
-    { name: "File upload", icon: <DriveFolderUploadIcon /> },
+    {
+      name: FieldType.PHONE_NUMBER,
+      icon: <LocalPhoneIcon />,
+    },
+    {
+      name: FieldType.LINK,
+      icon: <LinkIcon />,
+    },
+    {
+      name: FieldType.DATE,
+      icon: <CalendarTodayIcon />,
+    },
+    {
+      name: FieldType.TIME,
+      icon: <AccessTimeIcon />,
+    },
+    {
+      name: FieldType.FILE_UPLOAD,
+      icon: <DriveFolderUploadIcon />,
+    },
   ];
   return (
     <Stack spacing={1}>
