@@ -1,15 +1,7 @@
 "use client";
 
 import { ArrowForward } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Chip,
-  Divider,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Stack, TextField, Typography } from "@mui/material";
 import { BodyText } from "./FormInputSelectionDrawerDefaultContent";
 import FieldCreationFormContainer from "./FieldCreationFormContainer";
 
