@@ -2,8 +2,11 @@
 import * as React from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, ListItemIcon, ListItemText } from "@mui/material";
 import AppsIcon from "@mui/icons-material/Apps";
+import { Add } from "@mui/icons-material";
+import ContentCutIcon from "@mui/icons-material/ContentCut";
+import UpdateIcon from "@mui/icons-material/Update";
 export default function InputFieldUtilsMenu({
   setOpenDrawer,
 }: {
@@ -15,8 +18,12 @@ export default function InputFieldUtilsMenu({
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setOpenDrawer(true);
     setAnchorEl(null);
+  };
+
+  const handleItemClick = () => {
+    setOpenDrawer(true);
+    handleClose();
   };
 
   return (
@@ -48,9 +55,24 @@ export default function InputFieldUtilsMenu({
           horizontal: "left",
         }}
       >
-        <MenuItem onClick={handleClose}>Add form field</MenuItem>
-        <MenuItem onClick={handleClose}>Update form field</MenuItem>
-        <MenuItem onClick={handleClose}>Delete form field</MenuItem>
+        <MenuItem onClick={handleItemClick}>
+          <ListItemIcon>
+            <Add />
+          </ListItemIcon>
+          <ListItemText>Add form field</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleItemClick}>
+          <ListItemIcon>
+            <UpdateIcon />
+          </ListItemIcon>
+          <ListItemText>Update form field</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleItemClick}>
+          <ListItemIcon>
+            <ContentCutIcon />
+          </ListItemIcon>
+          <ListItemText>Delete form field</ListItemText>
+        </MenuItem>
       </Menu>
     </Box>
   );
