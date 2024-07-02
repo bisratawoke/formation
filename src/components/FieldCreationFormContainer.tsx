@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { BodyText } from "./FormInputSelectionDrawerDefaultContent";
 
-export default function ShortAnswerFieldCreationForm({
+export default function FieldCreationFormContainer({
   title,
   helperTextContainer,
   exampleContainer,
