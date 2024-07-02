@@ -13,9 +13,10 @@ import {
 import InputBlockList from "@/components/InputBlockList";
 import { CreateFormContext, formField } from "./FormInputListContainer";
 import FormInputSelectionDrawerDefaultContent from "./FormInputSelectionDrawerDefaultContent";
+import { FieldType } from "./FormFieldFactory";
 
 export type InputBlockType = {
-  name: string;
+  name: FieldType | string;
   icon: ReactNode;
   content?: ReactNode;
   onClick?: () => void;

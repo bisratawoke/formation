@@ -1,6 +1,5 @@
 import FormInputListContainer from "@/components/FormInputListContainer";
-import { LargeTextInput } from "@/components/LargeTextInput";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 
 export default function Page() {
   return (

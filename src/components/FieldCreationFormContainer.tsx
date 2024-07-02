@@ -1,16 +1,11 @@
 "use client";
 
 import { ArrowForward } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Chip,
-  Divider,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { BodyText } from "./FormInputSelectionDrawerDefaultContent";
+import { Box, Button, Chip, Divider, Stack, Typography } from "@mui/material";
+import { useContext } from "react";
+import { FormFieldContext } from "./FormFieldSelectionDrawer";
+import { CreateFormContext, formField } from "./FormInputListContainer";
+import FormFieldFactory from "./FormFieldFactory";
 
 export default function FieldCreationFormContainer({
   title,
@@ -21,6 +16,29 @@ export default function FieldCreationFormContainer({
   helperTextContainer: React.ReactNode;
   exampleContainer: React.ReactNode;
 }) {
+  const { setSelectedFieldContent, currentField, setCurrentField } =
+    useContext(FormFieldContext);
+
+  const { formFields, setFormFields } = useContext(CreateFormContext);
+
+  function handleInsertClick() {
+    setFormFields((state: formField[]) => [
+      ...state,
+      {
+        id: state.length + 1,
+        name: `Untitled ${currentField} ${state.length + 1}`,
+        label: `Untitled ${currentField}`,
+        hasUtils: true,
+        field: ({ name, label }: any) => (
+          <FormFieldFactory
+            fieldType={currentField}
+            name={name}
+            label={label}
+          />
+        ),
+      },
+    ]);
+  }
   return (
     <Stack
       sx={{
@@ -46,7 +64,12 @@ export default function FieldCreationFormContainer({
             >
               {title}
             </Typography>
-            <Button endIcon={<ArrowForward />} variant="contained" size="small">
+            <Button
+              endIcon={<ArrowForward />}
+              variant="contained"
+              size="small"
+              onClick={handleInsertClick}
+            >
               Insert
             </Button>
           </Stack>

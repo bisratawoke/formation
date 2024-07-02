@@ -19,6 +19,7 @@ export default function TextInputContainer({
         ...props,
         helperText: meta.touched && meta.error ? meta.error : "",
         error: meta.touched && Boolean(meta.error),
+        label: label,
       });
     }
     return child;

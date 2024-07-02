@@ -4,14 +4,13 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { LargeTextInput } from "./LargeTextInput";
 import TextInputContainer from "./TextInputContainer";
-import AddInputFieldButton from "./AddInputFieldButton";
 import { RightIconButton } from "./RightIconButton";
 import { Box, Stack } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import InputField from "./InputField";
 import { createContext, useState } from "react";
+import { pink } from "@mui/material/colors";
 
-export const CreateFormContext = createContext<any>(null);
 export type formField = {
   id: number;
   name: string;
@@ -21,6 +20,7 @@ export type formField = {
   field: ({ name, label }: { name: string; label: string }) => React.ReactNode;
 };
 
+export const CreateFormContext = createContext<any>(null);
 export default function FormInputListContainer() {
   const [formFields, setFormFields] = useState<formField[]>([
     {
