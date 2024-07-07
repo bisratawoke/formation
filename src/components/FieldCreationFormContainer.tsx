@@ -16,8 +16,12 @@ export default function FieldCreationFormContainer({
   helperTextContainer: React.ReactNode;
   exampleContainer: React.ReactNode;
 }) {
-  const { setSelectedFieldContent, currentField, setCurrentField } =
-    useContext(FormFieldContext);
+  const {
+    setSelectedFieldContent,
+    currentField,
+    setCurrentField,
+    setOpenDrawer,
+  } = useContext(FormFieldContext);
 
   const { formFields, setFormFields } = useContext(CreateFormContext);
 
@@ -29,6 +33,7 @@ export default function FieldCreationFormContainer({
         name: `Untitled ${currentField} ${state.length + 1}`,
         label: `Untitled ${currentField}`,
         hasUtils: true,
+        type: currentField,
         field: ({ name, label }: any) => (
           <FormFieldFactory
             fieldType={currentField}
@@ -38,7 +43,9 @@ export default function FieldCreationFormContainer({
         ),
       },
     ]);
+    setOpenDrawer(false);
   }
+
   return (
     <Stack
       sx={{

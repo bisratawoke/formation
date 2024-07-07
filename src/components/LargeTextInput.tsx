@@ -11,6 +11,7 @@ import {
 export const LargeTextInput = styled(InputBase)<TextFieldProps>(
   ({ theme }) => ({
     width: "400px",
+    height: "500px",
     lineHeight: "44px",
     textColor: "rgb(55, 53, 47)",
     "& .MuiInputBase-input": {

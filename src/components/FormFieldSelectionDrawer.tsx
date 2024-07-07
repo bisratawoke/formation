@@ -57,6 +57,7 @@ export default function FormFieldSelectionDrawer({
           AddNewFormField,
           currentField,
           setCurrentField,
+          setOpenDrawer,
         }}
       >
         <Grid container sx={{ height: "100%" }}>

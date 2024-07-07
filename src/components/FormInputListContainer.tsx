@@ -2,14 +2,13 @@
 
 import { Formik } from "formik";
 import * as yup from "yup";
-import { LargeTextInput } from "./LargeTextInput";
 import TextInputContainer from "./TextInputContainer";
 import { RightIconButton } from "./RightIconButton";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, TextField } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import InputField from "./InputField";
 import { createContext, useState } from "react";
-import { pink } from "@mui/material/colors";
+import { FieldType } from "./FormFieldFactory";
 
 export type formField = {
   id: number;
@@ -17,6 +16,7 @@ export type formField = {
   label: string;
   hasUtils: boolean;
   props?: Record<string, any>;
+  type?: FieldType;
   field: ({ name, label }: { name: string; label: string }) => React.ReactNode;
 };
 
@@ -28,12 +28,10 @@ export default function FormInputListContainer() {
       name: "title",
       label: "Title",
       hasUtils: false,
+      type: FieldType.SHORT_ANSWER,
       field: ({ name, title }: any) => (
-        <TextInputContainer name={name} label={title}>
-          <LargeTextInput
-            placeholder="Form Title"
-            variant="outlined"
-          ></LargeTextInput>
+        <TextInputContainer name={name} label={title} sx={{ width: "100%" }}>
+          <TextField placeholder="Form title" />
         </TextInputContainer>
       ),
     },
@@ -44,10 +42,10 @@ export default function FormInputListContainer() {
       <Formik
         initialValues={{}}
         validationSchema={yup.object({
-          title: yup.string().required(),
+          title: yup.string().required("Your form needs a name"),
         })}
         onSubmit={(values) => {
-          console.log(values);
+          console.log(formFields);
         }}
       >
         {({ handleSubmit }) => (
@@ -58,6 +56,7 @@ export default function FormInputListContainer() {
                   key={field.id}
                   hasUtils={field.hasUtils}
                   Field={field.field({ name: field.name, label: field.label })}
+                  attribute={field}
                 />
               ))}
               <InputField hasUtils={true} />
